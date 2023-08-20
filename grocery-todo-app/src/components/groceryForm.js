@@ -1,7 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 
 function GroceryForm(props) {
     const [input, setInput] = useState('')
+
+    const inputRef = useRef(null)
+
+    useEffect(() => {
+        inputRef.current.focus()
+    })
 
     const handleChange = e => {
         setInput(e.target.value)
@@ -27,6 +33,7 @@ function GroceryForm(props) {
     name="text" 
     className="grocery-input"
     onChange={handleChange}
+    ref={inputRef}
     />
     <button className="grocery-button">Add item</button>
 </form>

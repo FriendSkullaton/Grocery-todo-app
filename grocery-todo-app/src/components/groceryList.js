@@ -14,6 +14,16 @@ function GroceryList() {
         setGrocerys(newGrocerys);
     }
 
+    const removeGrocery = id => {
+        const removeArr=[...grocerys].filter(grocery => grocery.id !== id)
+
+        setGrocerys(removeArr)
+    }
+
+    const updateGrocery = (groceryId, newValue) => {
+        setGrocerys(prev =>prev.map(item => (item.id === groceryId ? newValue : item )))
+    }
+
     const completeGrocery = id => {
         let updatedGrocerys = grocerys.map(grocery => {
             if (grocery.id === id){
@@ -27,8 +37,17 @@ function GroceryList() {
   return (
     <>
     <h1>Grocery List</h1>
-    <GroceryForm onSubmit={addGrocery} />
-    <Grocery grocerys={grocerys} completeGrocery={completeGrocery}/>
+
+    <GroceryForm 
+    onSubmit={addGrocery} 
+    />
+
+    <Grocery 
+    grocerys={grocerys} 
+    completeGrocery={completeGrocery}
+    removeGrocery = {removeGrocery}
+    updateGrocery = {updateGrocery}
+    />
     </>
   )
 }

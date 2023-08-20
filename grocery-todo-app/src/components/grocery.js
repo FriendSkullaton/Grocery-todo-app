@@ -1,14 +1,28 @@
 import React, {useState} from 'react'
 import GroceryForm from './groceryForm'
+import { GrClose } from 'react-icons/gr'
+import {AiFillEdit} from 'react-icons/ai'
 
-function Grocery() {
+const Grocery = ({grocerys, completeGrocery, removeGrocery, updateGrocery }) => {
     const [edit, setEdit] = useState({
         id: null,
         value: ''
     })
 
+    const submitUpdate = value => {
+        updateGrocery(edit.id, value);
+        setEdit({
+            id: null,
+            value: ''
+        })
+    };
 
-  return Grocery.map((grocery, index) => (
+    if (edit.id) {
+        return <GroceryForm edit={edit} onSubmit={submitUpdate} />
+    }
+
+
+  return grocerys.map((grocery, index) => (
     <div 
     className={grocery.isComplete ? 'grocery-row complete' : 'grocery-row'} 
     key={index}>
@@ -20,7 +34,14 @@ function Grocery() {
         </div>
 
         <div className='icons'>
-
+            <GrClose
+             onClick={() => removeGrocery(grocery.id)}
+             className='delete-icon'
+            />
+            <AiFillEdit 
+             onClick={() => setEdit({id: grocery.id, value: grocery.text})}
+             className='edit-icon'
+            />
         </div>
 
     </div>

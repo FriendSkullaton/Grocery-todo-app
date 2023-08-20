@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react'
 
 function GroceryForm(props) {
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState(props.edit ? props.edit.value : '')
 
     const inputRef = useRef(null)
 
@@ -26,16 +26,35 @@ function GroceryForm(props) {
 
   return (
 <form className="grocery-form" onSubmit={handleSubmit}>
+    {props.edit ? ( 
+    <>
     <input 
     type="text" 
-    placeholder="Add an item" 
+    placeholder="Update item" 
     value= {input} 
     name="text" 
     className="grocery-input"
     onChange={handleChange}
     ref={inputRef}
     />
-    <button className="grocery-button">Add item</button>
+    <button className="grocery-button">Update</button>
+    </>) : ( 
+        <>
+        <input 
+        type="text" 
+        placeholder="Add an item" 
+        value= {input} 
+        name="text" 
+        className="grocery-input"
+        onChange={handleChange}
+        ref={inputRef}
+        />
+        <button className="grocery-button">Add item</button>
+        </>)
+        }
+
+
+   
 </form>
   )
 }

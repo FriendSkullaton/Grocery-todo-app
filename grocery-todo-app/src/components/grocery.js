@@ -34,13 +34,15 @@ const Grocery = ({grocerys, completeGrocery, removeGrocery, updateGrocery }) => 
         </div>
 
         <div className='icons'>
+
+        <AiFillEdit 
+             onClick={() => setEdit({id: grocery.id, value: grocery.text})}
+             className='edit-icon'
+            />
+
             <GrClose
              onClick={() => removeGrocery(grocery.id)}
              className='delete-icon'
-            />
-            <AiFillEdit 
-             onClick={() => setEdit({id: grocery.id, value: grocery.text})}
-             className='edit-icon'
             />
         </div>
 

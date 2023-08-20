@@ -6,9 +6,6 @@ function GroceryList() {
     const [grocerys, setGrocerys] = useState([])
 
     const addGrocery = grocery => {
-        // if (!grocery.text || /^\s*$.test(grocery.text)) {
-        //     return;
-        // }
 
         const newGrocerys = [grocery, ...grocerys];
         setGrocerys(newGrocerys);

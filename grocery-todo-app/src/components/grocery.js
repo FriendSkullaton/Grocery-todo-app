@@ -18,7 +18,14 @@ const Grocery = ({grocerys, completeGrocery, removeGrocery, updateGrocery }) => 
     };
 
     if (edit.id) {
-        return <GroceryForm edit={edit} onSubmit={submitUpdate} />
+        return (
+        <>
+        <GroceryForm 
+        edit={edit} 
+        onSubmit={submitUpdate} 
+        />
+        </>
+        )
     }
 
 

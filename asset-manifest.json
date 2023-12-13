@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Grocery-todo-app/static/css/main.8a3c8cab.css",
+    "main.js": "/Grocery-todo-app/static/js/main.5107632f.js",
+    "static/media/notepad.jpg": "/Grocery-todo-app/static/media/notepad.e82e24b0a89afdd494e4.jpg",
+    "index.html": "/Grocery-todo-app/index.html",
+    "main.8a3c8cab.css.map": "/Grocery-todo-app/static/css/main.8a3c8cab.css.map",
+    "main.5107632f.js.map": "/Grocery-todo-app/static/js/main.5107632f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8a3c8cab.css",
+    "static/js/main.5107632f.js"
+  ]
+}

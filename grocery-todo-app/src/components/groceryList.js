@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import GroceryForm from './groceryForm'
 import Grocery from './grocery'
 
 function GroceryList() {
-    const [grocerys, setGrocerys] = useState([])
+    const storedGrocerys = JSON.parse(localStorage.getItem('grocerys'))
+
+    const [grocerys, setGrocerys] = useState(storedGrocerys);
 
     const addGrocery = grocery => {
 
@@ -30,6 +32,10 @@ function GroceryList() {
         })
         setGrocerys(updatedGrocerys);
     }
+
+    useEffect(()=> {
+        localStorage.setItem('grocerys', JSON.stringify(grocerys))
+    }, [grocerys])
     
   return (
     <>
